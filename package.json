@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run --parallel dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:web": "pnpm run --filter web build",
+    "build:server": "pnpm run --filter server build"
   },
   "keywords": [],
   "author": "",
