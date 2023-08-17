@@ -1,9 +1,11 @@
-import { Button } from '@/components/Button';
+import { trpc } from '@web/app/trpc';
+import Button from '@web/components/Button';
 
-export default function Home() {
+export default async function Home() {
+  const { greeting } = await trpc.hello.query({ name: `Jina` });
   return (
     <main>
-      Home
+      <h1>Server side: {greeting}</h1>
       <Button />
     </main>
   );

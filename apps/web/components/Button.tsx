@@ -1,5 +1,16 @@
-import React from 'react';
+'use client';
 
-export const Button = () => {
-  return <div>Button</div>;
-};
+import { useEffect, useState } from 'react';
+import { trpc } from '@web/app/trpc';
+
+export default function Button() {
+  const [greeting, setGreeting] = useState('');
+
+  useEffect(() => {
+    trpc.hello
+      .query({ name: `Jina` })
+      .then(({ greeting }) => setGreeting(greeting));
+  }, []);
+
+  return <button>{greeting}</button>;
+}
